@@ -1,0 +1,72 @@
+maptool的功能用于将各个地图定位到的地理经纬度的坐标转换成地址
+
+1. 让屏幕始终保持竖屏
+   在AndroidManifest.xml中的activity中添加android:screenOrientation="portrait"
+
+2. 添加对多种地图坐标的支持，采用spinner来设计下拉菜单
+   a. 在AM.xml中添加Spinner
+   b. 在代码中添加如下：
+      private Spinner spinner;
+     在初始化中添加如下：
+      spinner = (Spinner) findViewById(R.id.spinner2);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.layers_array, android.R.layout.simple_spinner_item);
+   c. 在strings.xml中定义layers_array:
+      <string name="baidu">百度坐标</string>
+      <string name="mapbar">图吧坐标</string>
+      <string name="mapabc">图盟坐标</string>
+      <string name="sousou">搜搜坐标</string>
+      <string name="alimap">阿里坐标</string>
+      <string name="google">谷歌坐标</string>
+      <string name="gps">GPS坐标</string>
+
+      <string-array name="layers_array">
+        <item>@string/baidu</item>
+        <item>@string/mapbar</item>
+        <item>@string/mapabc</item>
+        <item>@string/sousou</item>
+        <item>@string/alimap</item>
+        <item>@string/google</item>
+        <item>@string/gps</item>
+      </string-array>
+
+3. 实现EditText来获取经纬度：
+    <EditText android:layout_height="fill_parent"
+                android:layout_width="280px"
+                android:id="@+id/latitude"
+                android:hint="31.125323"     // 提示，始终显示
+                android:inputType="numberDecimal"  // 输入为小数点数字
+                android:cursorVisible="true"/>
+
+4. 可以在dimen.xml中定义常用的数值：
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin_middle">2dp</dimen>
+
+5. 可以在color.xml中定义颜色：
+    <resources>
+    <color name="red"> #FF0000</color>
+    <color name="colorAccent">#FF4081</color> 
+    </resources>
+
+6. 坐标转地址：
+    latLonPoint = new LatLonPoint(lat, lng);
+    RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200,GeocodeSearch.AMAP);
+    geocoderSearch.getFromLocationAsyn(query); // 回调到上面的onRegeocodeSearched
+   在回调的函数里获取地址addressName = regeocodeResult.getRegeocodeAddress().getFormatAddress();
+
+7. 地图界面跳转到坐标：
+    LatLng latlng = new LatLng(lat, lng);
+    aMap.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(latlng, 18, 0, 30)));
+
+8. 地图显示zoom级别：
+   需要在地图初始化的时候就调用aMap.moveCamera(CameraUpdateFactory.zoomTo(18));    级别大概是25m比例尺     19级别就是10m比例尺
+
+9. 程序一开始就显示定位位置：
+   在地图初始化的地方调用mlocationClient.startLocation(), 之后onLocationChanged函数里去更改地图位置moveToAddr(aMapLocation.getLatitude(), aMapLocation.getLongitude());
+
+10. 默认显示比例尺：
+   初始化调用aMap.getUiSettings().setScaleControlsEnabled(true); // 设置默认显示比例尺
+
+11. EditText负数支持：
+    layout中的editext里添加android:inputType="numberDecimal|numberSigned"
+
+12. TODO

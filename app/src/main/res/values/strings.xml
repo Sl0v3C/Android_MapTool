@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">maptool</string>
+    <string name="action_settings">关于</string>
+    <string name="longitude">经度</string>
+    <string name="latitude">纬度</string>
+
+    <string name="baidu">百度坐标</string>
+    <string name="mapbar">图吧坐标</string>
+    <string name="mapabc">图盟坐标</string>
+    <string name="sousou">搜搜坐标</string>
+    <string name="alimap">阿里坐标</string>
+    <string name="google">谷歌坐标</string>
+    <string name="gps">GPS坐标</string>
+
+    <string-array name="layers_array">
+        <item>@string/baidu</item>
+        <item>@string/mapbar</item>
+        <item>@string/mapabc</item>
+        <item>@string/sousou</item>
+        <item>@string/alimap</item>
+        <item>@string/google</item>
+        <item>@string/gps</item>
+    </string-array>
+
+</resources>

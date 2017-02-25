@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.pyy.maptool.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+    </android.support.design.widget.AppBarLayout>
+
+    <com.amap.api.maps2d.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp" >
+
+    </com.amap.api.maps2d.MapView>
+
+    <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent" android:orientation="horizontal"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_gravity="top"
+        android:layout_marginTop="60dp">
+            <TextView android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="经度"
+                android:layout_marginLeft="2dp"
+                android:textColorLink="?android:attr/colorActivatedHighlight"
+                android:textSize="14sp"
+                android:textStyle="normal|bold"
+                android:textColor="@android:color/background_dark"
+                android:elevation="0dp" />
+        <EditText android:layout_height="fill_parent"
+            android:layout_width="310px"
+            android:id="@+id/longitude"
+            android:hint="121.635646"
+            android:inputType="numberDecimal|numberSigned"
+            android:cursorVisible="true" />
+            <TextView android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="纬度"
+                android:textStyle="normal|bold"
+                android:textSize="14sp"
+                android:textColor="@android:color/background_dark" />
+            <EditText android:layout_height="fill_parent"
+                android:layout_width="310px"
+                android:id="@+id/latitude"
+                android:hint="31.125323"
+                android:inputType="numberDecimal|numberSigned"
+                android:cursorVisible="true"/>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="查找"
+                android:id="@+id/button"
+                android:minWidth="50dip"
+            style="@android:style/Widget.Button" />
+
+    </LinearLayout>
+
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner2"
+        android:layout_marginTop="570dp"
+        android:minWidth="100dp"
+        android:minHeight="40dp"
+        style="@android:style/Widget.Spinner"
+        android:layout_marginLeft="80dp" />
+
+    <TextView
+        android:minHeight="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+
+        android:background="@android:color/holo_blue_dark" />
+
+    <TextView
+        android:id="@+id/checkResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/red"
+        android:textStyle="normal|bold"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp" />
+
+</android.support.design.widget.CoordinatorLayout>
