@@ -1,5 +1,4 @@
 # Android_MapTool
-=====================  
 
 	The Andoird MapTool APP which based on amap APIs. 
 	The MapTool can convert the latitude and longtitude
