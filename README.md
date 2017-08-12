@@ -5,7 +5,7 @@
 	to the address in detail.
 
 ### The app runtime screenshot
-![example.png](/example.png "example.png")  
+<img width="202" height="330" src="/example.png">  
 
 	The default latitude & longtitue is the Shanghai World Financial Center.
 	You can also tap the location icon to display your position right now.
